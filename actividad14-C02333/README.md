@@ -23,8 +23,8 @@ classDiagram
         +String nombre
     }
 
-    Receta "1" *-- "1..*" RecetaIngrediente : contiene
-    RecetaIngrediente "*" --> "1" Ingrediente : usa
+    Receta "receta 1" *-- "detalles 1..*" RecetaIngrediente : contiene
+    RecetaIngrediente "detalles *" --> "ingrediente 1" Ingrediente : usa
 ```
 
 `RecetaIngrediente` es la clase de asociación: guarda la cantidad y la unidad de cada ingrediente dentro de una receta. Un ingrediente puede aparecer en varias recetas.
@@ -100,12 +100,12 @@ classDiagram
         OTRA
     }
 
-    Persona "0..1" -- "0..1" Persona : conyuge
-    Persona "0..2" -- "0..*" Persona : padres / hijos
-    Persona "*" --> "1" Vivienda : vive en
-    Persona "1" -- "*" Vivienda : posee
+    Persona "conyuge 0..1" -- "conyuge 0..1" Persona : casado con
+    Persona "padres 0..2" -- "hijos 0..*" Persona : tiene
+    Persona "habitantes *" --> "vivienda 1" Vivienda : vive en
+    Persona "propietario 1" -- "propiedades *" Vivienda : posee
     Vivienda <|-- Casa
     Vivienda <|-- Apartamento
-    Vivienda "1" *-- "1..*" Habitacion : se compone de
-    Habitacion --> FuncionHabitacion : funcion
+    Vivienda "vivienda 1" *-- "habitaciones 1..*" Habitacion : se compone de
+    Habitacion "habitaciones *" --> "funcion 1" FuncionHabitacion : tiene
 ```
