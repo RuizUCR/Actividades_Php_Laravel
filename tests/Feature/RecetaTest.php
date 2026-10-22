@@ -4,14 +4,18 @@ use App\Models\Ingrediente;
 use App\Models\Receta;
 
 it('instancia una receta con dos ingredientes, cantidad y unidad', function () {
-    $receta = Receta::create([
+    // Instanciación de la clase Receta
+    $receta = new Receta([
         'titulo' => 'Panqueques',
         'porciones' => 4,
         'instrucciones' => 'Mezclar todo y cocinar en sartén.',
     ]);
+    $receta->save();
 
-    $harina = Ingrediente::create(['nombre' => 'Harina']);
-    $leche = Ingrediente::create(['nombre' => 'Leche']);
+    $harina = new Ingrediente(['nombre' => 'Harina']);
+    $harina->save();
+    $leche = new Ingrediente(['nombre' => 'Leche']);
+    $leche->save();
 
     $receta->ingredientes()->attach([
         $harina->id => ['cantidad' => 200, 'unidad' => 'g'],

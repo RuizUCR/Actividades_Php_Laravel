@@ -30,7 +30,7 @@ classDiagram
 `RecetaIngrediente` es la clase de asociación: guarda la cantidad y la unidad de cada ingrediente dentro de una receta. Un ingrediente puede aparecer en varias recetas.
 
 ### Código
-
+- Instanciación de `Receta`: `new Receta([...])` seguido de `save()`, en `tests/Feature/RecetaTest.php`
 - Modelos: `app/Models/Receta.php`, `app/Models/Ingrediente.php`, `app/Models/RecetaIngrediente.php`
 - Migraciones: `database/migrations/2026_10_22_00000*_create_*`
 - Instanciación de `Receta`: `tests/Feature/RecetaTest.php`
